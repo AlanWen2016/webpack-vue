@@ -58,4 +58,5 @@ module.exports = {
         template: path.resolve(__dirname, '../index.html'),
       }),
   ],// 插件
+  resolve: { alias: { 'vue': 'vue/dist/vue.js' } }
 };

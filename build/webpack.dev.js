@@ -1,7 +1,6 @@
 // webpack.dev.js
 // 存放 dev 配置
 const path = require('path');
-
 const merge = require('webpack-merge');
 const common = require('./webpack.base.js');
 
