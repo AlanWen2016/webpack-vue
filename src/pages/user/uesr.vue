@@ -8,6 +8,10 @@
             <div>
                 {{info}}
             </div>
+            <div>
+                Store.count: {{count}}
+            </div>
+            <!-- <Counter></Counter>       -->
         </div>
     
 </template>
@@ -37,13 +41,20 @@ export default {
         // console.log(this.$route.meta.menu)
     },
     mounted() {
-    axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => (this.info = response))
+        console.log(this.$store)
+        axios
+        .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+        .then(response => (this.info = response))
   
     },
     methods: {
         
     },
+    computed:{
+        count () {
+            return 1234;
+            // return this.$store.state.count
+        }
+    }
 }
 </script>

@@ -2,7 +2,23 @@ import Vue from 'vue';
 import App from './app.vue'
 import VueRouter from 'vue-router'
 import routerConfig from './router/router.js'
-Vue.use(VueRouter)
+import Vuex from 'vuex'
+Vue.use(VueRouter);
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
+store.commit('increment');
+console.log(store.state.count,'store') // -> 1
+
 // 0. 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter)
 
 // 1. 定义 (路由) 组件。
@@ -47,7 +63,14 @@ Vue.directive('demo', function (el, binding) {
   console.log(binding.value.color) // => "white"
   console.log(binding.value.text)  // => "hello!"
 })
-
+// const Counter = {
+//   template: `<div>{{ count }}</div>`,
+//   computed: {
+//     count () {
+//       return this.$store.state.count
+//     }
+//   }
+// }
 
 // 现在，应用已经启动了！
 const app = new Vue({
