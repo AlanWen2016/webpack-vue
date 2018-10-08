@@ -1,11 +1,21 @@
 <template>
         <div class="g-main f-clearfix">
-            user啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-            {{info}}
+            <h3>router: user</h3>
+            <div class="box1">
+                <input type="text" v-focus>
+                <input type="text" v-demo="{ color: 'white', text: 'hello!' }">
+            </div>
+            <div>
+                {{info}}
+            </div>
         </div>
     
 </template>
 <style lang="scss">
+    .box1{
+        width: 300px;
+        height: 200px;
+    }
 
 </style>
 
