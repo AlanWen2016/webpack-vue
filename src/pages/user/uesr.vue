@@ -7,11 +7,16 @@
             </div>
             <div>
                 {{info}}
+                <p>{{ $store.state.msg }}</p>
             </div>
             <div>
                 Store.count: {{count}}
+            <p>
+                <button @click="increment">+</button>
+                <button @click="decrement">-</button>
+            </p>
             </div>
-            <!-- <Counter></Counter>       -->
+          
         </div>
     
 </template>
@@ -27,6 +32,7 @@
 
 <script>
 import axios from 'axios';
+import { mapState } from 'vuex';
 export default {
     data() {
         return {
@@ -48,13 +54,17 @@ export default {
   
     },
     methods: {
-        
-    },
-    computed:{
-        count () {
-            return 1234;
-            // return this.$store.state.count
+        increment () {
+            this.$store.commit('increment')
+        },
+        decrement () {
+            this.$store.commit('decrement')
         }
-    }
+    },
+    computed: mapState([
+    // 映射 this.count 为 store.state.count
+    'count',
+    'msg'
+    ])
 }
 </script>

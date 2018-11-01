@@ -3,16 +3,21 @@ import App from './app.vue'
 import VueRouter from 'vue-router'
 import routerConfig from './router/router.js'
 import Vuex from 'vuex'
+
 Vue.use(VueRouter);
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    msg:'imessage'
   },
   mutations: {
     increment (state) {
       state.count++
+    },
+    decrement (state) {
+      state.count--
     }
   }
 })
@@ -76,5 +81,6 @@ Vue.directive('demo', function (el, binding) {
 const app = new Vue({
     el : '#app',
     router : router,
+    store: store,
     render : h => h(App)
 })
